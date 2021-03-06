@@ -305,9 +305,6 @@ const checkWinStart = function (colNumber, rowNumber, color) {
       diagType,
       winnerDiags
     ) {
-      //debugger;
-      //console.log(iteration);
-
       if (iteration == 3) {
         winnerDiags.push(diagArray[iteration2][0]);
         return {
