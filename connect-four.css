@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 600px;
+  margin: 200px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
+  background: whitesmoke;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+}
+.cf-main {
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  grid-row: 2/-1;
+  grid-column: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: wheat;
+}
+.cf-board-conainer {
+  padding: 6px;
+  border-radius: 6px;
+  z-index: -5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.cf-board {
+  /*background: whitesmoke;z-index: -2;*/
+  padding: 5px;
+}
+.holes {
+  display: block;
+  width: 40px;
+  border: 3px solid orange;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 0px 0px gold;
+  background: transparent;
+  z-index: 1;
+}
+.starters {
+  width: 40px;
+  border: 3px solid orange;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  z-index: 1;
+}
+.falling-status {
+  transition: ease-out 1s;
+  cursor: default;
+  background: turquoise;
+  opacity: 0.5;
+}
+.falling-disk-player1 {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid orange;
+  background: coral;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.falling-disk-player2 {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid orange;
+  background: blue;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+aside {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  grid-column: 2/-1;
+  grid-row: 2/-1;
+}
+.win-banner {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  font-weight: bolder;
+  border: 2px Solid red;
+  transition: font-size 12;
+  background-color: blue;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  animation-name: rotate;
+  animation-duration: 0.7s;
+  /*display: flex;*/
+  align-items: center;
+  justify-content: center;
+  margin-left: 10xp;
+}
+.display-controls {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  background: wheat;
+  border: 1px solid whitesmoke;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.winning-disks {
+  animation-name: winnerdisks;
+  margin: 0 auto;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+  animation-play-state: running;
+  z-index: 1;
+}
+
+@keyframes winnerdisks {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.9);
+  }
+  20% {
+    transform: scale(0.8);
+  }
+  30% {
+    transform: scale(0.7);
+  }
+  40% {
+    transform: scale(0.6);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  60% {
+    transform: scale(0.6);
+  }
+  70% {
+    transform: scale(0.7);
+  }
+  80% {
+    transform: scale(0.8);
+  }
+  90% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/*
+60% {
+  width: 10px;
+  height: 10px;
+  transform: translate(-5px);
+}
+70% {
+  width: 15px;
+  height: 15px;
+  transform: translate(-5px);
+}
+80% {
+  width: 20px;
+  height: 20px;
+  transform: translate(-5px);
+}
+90% {
+  width: 25px;
+  height: 25px;
+  transform: translate(-5px);
+}
+100% {
+  width: 30px;
+  height: 30px;
+  transform: translate(-5px);
+}
+*/
+
+.players-info {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: column nowrap;
+  margin: 10px 0 0 0;
+
+  width: 100%;
+}
+.players {
+  display: block;
+  margin: 15px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: red;
+  font-weight: bolder;
+  width: 150px;
+}
+.player-1 {
+  background: orange;
+  border: 1px tomato solid;
+}
+.player-2 {
+  background: blue;
+  border: 1px navy solid;
+  color: white;
+}
+.reset-btn {
+  display: block;
+  margin: 15px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: red;
+  font-weight: bolder;
+  background: brown;
+  border: 1px navy solid;
+  color: white;
+  width: 150px;
+  text-align: left;
+}
+
+.title-bar {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  background: wheat;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title-bar h1 {
+  font-size: 3rem;
+}
