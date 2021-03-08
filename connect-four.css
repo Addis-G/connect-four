@@ -13,6 +13,7 @@
   align-items: center;
   border-radius: 10px;
   padding: 20px;
+  position: relative;
 }
 .cf-main {
   margin: 0 auto;
@@ -35,7 +36,10 @@
 }
 .cf-board {
   /*background: whitesmoke;z-index: -2;*/
-  padding: 5px;
+  background: cornsilk;
+  padding: 10px;
+  border-radius: 10px;
+  border: wheat 2px solid;
 }
 .holes {
   display: block;
@@ -76,6 +80,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  font-size: 1rem;
 }
 
 .falling-disk-player2 {
@@ -89,6 +94,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  font-size: 1rem;
 }
 aside {
   display: flex;
@@ -99,15 +105,16 @@ aside {
 }
 .win-banner {
   display: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
   font-weight: bolder;
   border: 2px Solid red;
   transition: font-size 12;
   background-color: blue;
   border-radius: 10px;
+  margin-left: 15px;
   width: 100px;
-  height: 100px;
+  height: 50px;
   animation-name: rotate;
   animation-duration: 0.7s;
   /*display: flex;*/
@@ -122,7 +129,6 @@ aside {
   align-items: flex-start;
   height: 100%;
   background: wheat;
-  border: 1px solid whitesmoke;
 }
 @keyframes rotate {
   0% {
@@ -185,8 +191,8 @@ aside {
   justify-content: flex-start;
   flex-flow: column nowrap;
   margin: 10px 0 0 0;
-
   width: 100%;
+  position: relative;
 }
 .players {
   display: block;
@@ -197,17 +203,50 @@ aside {
   color: red;
   font-weight: bolder;
   width: 150px;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  padding-left: 25px;
 }
+
+.players::before .invisible {
+  content: "";
+}
+
 .player-1 {
   background: orange;
   border: 1px tomato solid;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
 }
+
 .player-2 {
   background: blue;
   border: 1px navy solid;
   color: white;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
 }
-.reset-btn {
+.player-marker:before {
+  font-family: "Material Icons";
+  content: "arrow_right";
+  display: block;
+  width: 10px;
+  padding: 0;
+  margin: 0;
+  color: wheat;
+  left: -20px;
+  top: -10px;
+  font-size: 60px;
+  position: absolute;
+}
+
+.reset-btn,
+.options-btn {
   display: block;
   margin: 15px;
   border-radius: 5px;
@@ -220,6 +259,30 @@ aside {
   color: white;
   width: 150px;
   text-align: left;
+  display: flex;
+  flex-grow: row nowrap;
+}
+.reset-btn:before {
+  font-family: "Material Icons";
+  content: "replay";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 1.2rem;
+  margin-right: 10px;
+  width: 10px;
+}
+.options-btn:before {
+  font-family: "Material Icons";
+  content: "settings";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 1.2rem;
+  margin-right: 10px;
+  width: 10px;
 }
 
 .title-bar {
@@ -233,4 +296,85 @@ aside {
 }
 .title-bar h1 {
   font-size: 3rem;
+}
+.modal {
+  display: none;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  min-height: 100%;
+  z-index: 10;
+}
+.modal.open {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(6px);
+}
+
+.form-container {
+  font-family: "Noto Sans", sans-serif;
+  background: silver;
+  width: 540px;
+  min-height: 200px;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: cornflowerblue;
+}
+.form-container input,
+.form-container * label,
+.form-container button {
+  margin: 5px 2px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+.form-container h4 {
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+  margin: 10px 5px;
+  border-bottom: 1px solid black;
+}
+.form-container button {
+  margin-top: 10px;
+  display: block;
+}
+.container-human-option {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-first-player-name-option {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-btn {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.modal input:invalid:required {
+  border-bottom: 3px solid red;
+}
+.modal input[name="option-player-2"]:required {
+  border: 3px solid red;
+}
+
+.required-msg-fld {
+  display: inline;
+  color: red;
+}
+.required-msg-fld-hidden {
+  opacity: 0;
 }

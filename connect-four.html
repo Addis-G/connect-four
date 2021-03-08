@@ -5,23 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connect Four</title>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script defer src="connect-four.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="connect-four.css" />
   </head>
   <body>
     <head></head>
     <div class="container">
+
+
+
+   
       <div class='title-bar'><h1>Connect Four</h1></div>
       <section class="cf-main">
         <div class="cf-board"></div></section><aside class='display-controls'>
           
-          <div class='players-info'><span class='players player-1'>Player - 1</span><span class='players player-2'>Player - 2</span></div>
+          <div class='players-info'><span class='players player-1 player-marker'><span>Player - 1</span></span><span class='players player-2'>Player - 2</span></div>
           <div><button class='reset-btn'>Reset</button></div>
+          <div><button class='options-btn'>Options</button></div>
           <div class='win-banner'>Win!!<div>
           
-       </aside> </div>
-        
+       </aside> 
+      
+       <div class="modal">
+        <div class="form-container"> <h4>Please select how you want to play the game.</h4>
+          <form>
+            
+            <div class='container-first-player-name'><label for='player-1'>Player 1 Name</label>
+              <input type="text" name="player-1" id="player-1" required ><h5>This is a mandatory field.</h5></div>
+          
+          <div class='container-human-option'><input type="radio" name='option-player-2' id="option-player-2-radio" checked>
+            <label for="ption-player-2">Vs Another Player?</label>
+            <label for="player-2">Playe 2 Name </label><input type="text" name="player-2" id="input-player-2"  required>
+            <h5>This is a mandatory field.</h5>
+          </div>
+          <input type="radio" name='option-player-2' id="option-player-computer">
+          
+          <label for="option-player-2">Vs Computer?</label>
+         <div class="container-btn"><button id="submit-player-option" type="button" value="players" ><span>Submit</span></button></div> 
+        </form> </div>
+       
+      </div>
+      </div>
+       
       
       
   
